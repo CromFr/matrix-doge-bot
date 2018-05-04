@@ -36,8 +36,9 @@ class NounHandler {
     processMessage(roomID, message) {
 
         let match = false;
+        const wordList = message.toLowerCase().split(/\s+/);
         for(let trigger of this.triggers){
-            if(message.toLowerCase().indexOf(trigger) >= 0){
+            if(wordList.findIndex(a => a === trigger) >= 0){
                 match = true;
                 break;
             }
@@ -55,7 +56,7 @@ class NounHandler {
                 for(let i = 0 ; i < nounList.length && i < 2 ; i++){
                     answer += (i !== 0 ? ", " : "") + `${this.prefixes[i]} ${nounList[i].toLowerCase()}`;
                 }
-                console.log("answer", answer);
+
                 this._client.sendNotice(roomID, answer);
             });
 
