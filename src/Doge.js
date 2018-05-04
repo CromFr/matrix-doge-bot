@@ -30,7 +30,7 @@ class NounHandler {
 
         this.triggers = [ "doge", "wow", "much", "many", "such" ];
 
-        this.prefixes = [ "wow", "much", "so", "very", "many", "how", "such", "great", "amaze", "pls no" ];
+        this.prefixes = [ "wow", "much", "so", "very", "many", "how", "such", "great", "amaze", "pls no", "mighty" ];
     }
 
     processMessage(roomID, message) {
