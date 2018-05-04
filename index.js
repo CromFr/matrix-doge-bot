@@ -4,7 +4,7 @@ const config = require("config");
 LogService.configure(config["logging"]);
 
 const sdk = require("matrix-js-sdk");
-const NounHandler = require("./src/NounHandler");
+const Doge = require("./src/Doge");
 const matrixUtils = require("matrix-js-snippets");
 
 const client = sdk.createClient({
@@ -14,6 +14,6 @@ const client = sdk.createClient({
 });
 
 matrixUtils.autoAcceptInvites(client);
-NounHandler.start(client);
+Doge.start(client);
 
 client.startClient({initialSyncLimit: 3});

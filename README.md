@@ -1,2 +1,2 @@
-# matrix-hyper-bot
-A silly matrix bot that prefixes messages with "hyper" if the message is a single noun
+# matrix-doge-bot
+Writing a sentence containing either [ "wow", "much", "many", "such" ] will summon the doge. Such wow.

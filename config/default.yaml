@@ -1,10 +1,10 @@
-homeserverUrl: "https://t2bot.io"
+homeserverUrl: "https://matrix.org"
 accessToken: "YOUR_TOKEN_HERE"
-userId: "@hyperbot:t2bot.io"
+userId: "@doge:matrix.org"
 
 # Settings for controlling how logging works
 logging:
-  file: logs/hyperbot.log
+  file: logs/doge.log
   console: true
   consoleLevel: info
   fileLevel: verbose
