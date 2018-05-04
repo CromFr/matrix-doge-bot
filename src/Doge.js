@@ -53,7 +53,7 @@ class NounHandler {
 
                 let answer = "";
                 for(let i = 0 ; i < nounList.length && i < 2 ; i++){
-                    answer += `${this.prefixes[i]} ${nounList[i].toLowerCase()} `;
+                    answer += (i !== 0 ? ", " : "") + `${this.prefixes[i]} ${nounList[i].toLowerCase()}`;
                 }
                 console.log("answer", answer);
                 this._client.sendNotice(roomID, answer);
