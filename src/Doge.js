@@ -28,23 +28,13 @@ class NounHandler {
                 this.processMessage(event.getRoomId(), content.body);
         });
 
-        this.triggers = [ "doge", "wow", "much", "many", "such" ];
+        this.trigger = new RegExp(/\b(doge|wow|much|many|such)\b/i);
 
         this.prefixes = [ "wow", "much", "so", "very", "many", "how", "such", "great", "amaze", "pls no", "mighty" ];
     }
 
     processMessage(roomID, message) {
-
-        let match = false;
-        const wordList = message.toLowerCase().split(/\s+/);
-        for(let trigger of this.triggers){
-            if(wordList.findIndex(a => a === trigger) >= 0){
-                match = true;
-                break;
-            }
-        }
-        if(match === true){
-
+        if(message.match(this.trigger) !== null){
             this._wordpos.getNouns(message, nounList => {
 
                 if(nounList.length === 0) return;
