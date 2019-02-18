@@ -39,7 +39,7 @@ class NounHandler {
     processMessage(roomID, message) {
         if(message.match(this.trigger) !== null){
             this._wordpos.getNouns(message, nounList => {
-
+                nounList = nounList.filter(noun => noun.length > 1)
                 if(nounList.length === 0) return;
 
                 nounList = shuffle(nounList);
