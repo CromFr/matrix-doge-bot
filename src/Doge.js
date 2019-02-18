@@ -21,9 +21,12 @@ class NounHandler {
         this._client.on('event', (event) => {
             if (event.getType() !== 'm.room.message') return;
             if (event.getSender() === client.credentials.userId) return;
-            if (event.getContent().msgtype !== 'm.text') return;
 
             const content = event.getContent();
+
+            if (event.getContent().msgtype !== 'm.text') return;
+            if (content["m.relates_to"] !== undefined && content["m.relates_to"]["m.in_reply_to"] !== undefined) return;
+
             if(content.body !== undefined)
                 this.processMessage(event.getRoomId(), content.body);
         });
