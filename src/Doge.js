@@ -25,7 +25,10 @@ class NounHandler {
             const content = event.getContent();
 
             if (event.getContent().msgtype !== 'm.text') return;
-            if (content["m.relates_to"] !== undefined && content["m.relates_to"]["m.in_reply_to"] !== undefined) return;
+            if ("m.relates_to" in content
+                && typeof content["m.relates_to"] === "object"
+                && "m.in_reply_to" in content["m.relates_to"])
+                return;
 
             if(content.body !== undefined)
                 this.processMessage(event.getRoomId(), content.body);
